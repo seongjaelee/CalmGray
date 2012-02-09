@@ -1,5 +1,8 @@
 <?php
-# This is a default 
+# This is a config.php file for the MoniWiki
+# automatically detect your environment and set some default variables.
+# 2010-08-18 11:51:01 by monisetup.php
+# This is a default
 #
 # $Id: config.php.default,v 1.56 2009/10/05 04:01:02 wkpark Exp $
 #
@@ -16,7 +19,7 @@ $shared_intermap= $data_dir."/text/InterMap";
 
 $url_prefix= '/moniwiki';
 $imgs_dir= $url_prefix.'/imgs';
-$logo_img= $imgs_dir.'/logo.gif';
+$logo_img= $imgs_dir.'/logo.png';
 $query_prefix= '/';
 
 $css_url= $url_prefix.'/css/nlog.css';
@@ -29,7 +32,7 @@ $use_hostname= 1; # use hostname or ip address
 $mask_hostname=1; # hide some part of hostnames or ip addresses
 $show_hosts=0;
 $edit_rows=16; # editer rows
-$iconset= 'moni2'; # moni, moni2
+$iconset= 'moni3'; # moni, moni2
 $inline_latex=0; # 0/1(on/off), mimetex, itex, etc.
 #$inline_latex='mimetex';
 #$mimetex_path='/cgi-bin/mimetex.cgi'; # cgi mode
@@ -103,7 +106,9 @@ $metatags=<<<META
 META;
 
 # set global javascripts (lowlevel)
-#$js=<<<EOF
+$js=<<<EOF
+<script type="text/javascript">var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-12032266-2']); _gaq.push(['_trackPageview']); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();</script>
+EOF;
 #<script type="text/javascript" src="$url_prefix/local/ajax.js"></script>
 #<script type="text/javascript" src="$url_prefix/local/se.js"></script>
 #<script type="text/javascript" src="$url_prefix/local/Wikiwyg/lib/Wikiwyg.js"></script>
@@ -114,13 +119,11 @@ META;
 #<script type="text/javascript" src="$url_prefix/local/Wikiwyg/lib/Wikiwyg/HTML.js"></script>
 #<script type="text/javascript" src="$url_prefix/local/Wikiwyg/lib/Wikiwyg/Wysiwyg.js"></script>
 #<script type="text/javascript" src="$url_prefix/local/moniwyg.js"></script>
-#
 #<script type="text/javascript" src="$url_prefix/local/js/prototype.js"></script>
 #<script type="text/javascript" src="$url_prefix/local/js/scriptaculous.js?load=effects,controls"></script>
-#<script type="text/javascript" src="$url_prefix/local/lightbox2/js/lightbox.js"></script>
-#<link rel="stylesheet" href="$url_prefix/local/lightbox2/css/lightbox.css" type="text/css" media="screen" />
 #<script type="text/javascript" src="$url_prefix/local/autocomplete.js"></script>
 #<script type="text/javascript" src="$url_prefix/local/subindex.js"></script>
+#
 #EOF;
 # alternatively you can use the $javascripts option (more inteligent method)
 $javascripts=array(
@@ -135,13 +138,12 @@ $javascripts=array(
 	'ajax.js',
 	'moniwyg.js',
 	'ASCIIMathML.js');
-
 #$diffonly=1; # show only diff infos (do not show wiki contents)
 #$goto_type=1;
 
 #$purple_icon=''; # obsolute
 #$use_purple=''; # obsolute
-$perma_icon='&#xB6;';
+$perma_icon='ขา';
 #$perma_icon='<img src="/wiki/imgs/egg.png" border="0" />';
 #$pagetype=array("KldpDsl"=>"plain","ManPage"=>"/man","DocbookSgml"=>"/jade","LinuxDoc"=>"/linuxdoc");
 # set default processor for jade
@@ -166,23 +168,21 @@ $myprocessors=array('syntax'=>'vim','sh'=>'vim','csh'=>'vim',
 #$kiwirian=array('Kiwirian','Hello'); # block users
 #$kiwirian='Kiwirian:Hello';
 #$delete_history=1;
-#$use_twikilink=1; 
+#$use_twikilink=1;
 #$timezone='KST'; // for windows
-#$version_class='RcsLite';
+$version_class='RcsLite';;
 #$use_numbering=1; // for the vim processor
 #$vim_nocheck=0; // do not check vim syntax.
-#$vim_nocheck=1;
-#$use_resizer=1; // javascript resizer
-# drupal style resizer 
+#$vim_nocheck=1;;
 $use_resizer=2;
 #$use_minoredit=1; // only for wiki owners
-#$auto_search='FixMoin'; # for old moinmoin users
+#$auto_search='FixMoin'; # for old moinmoin users; # for old moinmoin users
 #$auto_search='AutoGoto';
 #$hr_type='fancy';
 $use_wikiwyg=1; # 1 for GUI button/ 2 to set as default behavior/ 3 to set always use GUI.
 #$wikiwyg_confirm=1; # always confirm
 $use_sectionedit=0;
-#$sectionedit_attr=1; # enable wikiwyg section editing
+#$sectionedit_attr=0; # enable wikiwyg section editing
 $spam_filter='antispam';
 $toc_options='simple,toggle';
 #$toc_options='title=Contents,toggle,simple';
@@ -192,8 +192,8 @@ $toc_options='simple,toggle';
 #$ticket_font='TTFONT';
 #$ticket_font_size='20';
 $local_abbr='LocalDictionary';
-#$postfilters='abbr';
 $postfilters='';
+#$postfilters='';
 $use_forcemerge=1;
 $default_language='ko';
 $use_alias=1;
@@ -214,14 +214,14 @@ $use_preview_uploads=1;
 $use_camelcase=0; # turn off camelcase syntax by default
 #$category_regex=urldecode('%EB%B6%84%EB%A5%98$'); # a category example for Korean
 #$use_backlinks=1; # set default fullsearch behavior as backlinks search
-$fullsearch_tooshort=2; # 
+$fullsearch_tooshort=2; #
 #$use_smartdiff=1; # use the experimental smart diff XXX
 #$hide_actions=0; # hide actions list for anonymous user
 #$actions= array('DeletePage','LikePages','?action=Keywords Add keywords'); # customized act list
 #$info_options='ago,simple'; # default Info macro options
 #$info_actions=array('raw'=>'source');
 #$info_actions=array('raw'=>'source','diff'=>'diff');
-#$force_charset=1; # overriding default charset 
+#$force_charset=1; # overriding default charset
 #$use_titlemenu=1; # add the current pagename to the menu list
 #$submenu='SubMenu'; # dynamic submenu
 #$submenu_showmain=1;
@@ -252,11 +252,11 @@ $cache_public_dir='./_cache'; # enhanced caching
 $cache_public_url=$url_prefix.'/_cache';
 #$no_404=1; # for IIS
 #$nofancy_404=1; # simplified 404 msg for robots etc.
-#$toolbar_iconset='mediawiki'; # change the toolbar iconset 
+#$toolbar_iconset='mediawiki'; # change the toolbar iconset
 #$use_lightbox=1;
 #$gallery_use_lightbox=1;
 #$use_hangul_search=1; # use hangul search for auto-completer
-#$use_subindex=1; # use subpage indices 
+#$use_subindex=1; # use subpage indices
 #$nosession=1; # do not use session
 #$default_pre='pre'; # set the default pre processor
 #$use_rating=1; # builtin Rating support
@@ -270,7 +270,7 @@ $flashupload='swfupload';
 #$check_openid_url=0; # selectivly show openid icons: experimental
 #$use_autosave=1; # enable autosave feature.
 #$delayindex=60*60*24*5 # delayed indexing
-#$use_bbs=0;
+#$use_bbs=0;;
 $robots='googlebot|yahoo'; # set robots
 #$security_class_robot='robot';
 #$url_encodings='euc-kr,uhc'; # autogoto option: search invalid urls with different encodings
@@ -279,3 +279,5 @@ $use_scrap=1; # use scrap
 #$use_userlink=0; # replace the UserPreference link to the UserHomePage
 $use_local_translation=0; # automatic translation
 #$use_jsbutton=0; # use javascript fake buttons.
+$version_class='RcsLite';
+$admin_passwd='80qmZY.JWxxDQ';

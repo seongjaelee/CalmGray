@@ -16,10 +16,11 @@
 	$theme_use_sitename = false; // 사이트 이름을 좌상단에 표시합니다.
 ?>
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<!--<script type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/jquery-1.4.2.min.js"></script>-->
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>-->
+<script type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/shortcut.js"></script>
 <script type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/jquery.simplemodal-1.3.5.min.js"></script>
+<script type="text/javascript">var isLoggedIn=<?php if($DBInfo->user->id=='Anonymous') echo "0"; else echo "1";?>;</script>
 
 <!--<script type="text/javascript" src="http://tablesorter.com/jquery.tablesorter.js"></script>-->
 <script type="text/javascript" src="<?php echo $this->themeurl;?>/menu.js"></script>
@@ -29,12 +30,6 @@
 <!--[if IE 7]> <link rel="stylesheet" type="text/css" href="<?php echo $this->themeurl;?>/css/ie7.css" /> <![endif]-->
 <!--[if lt IE 7]> <script defer type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/pngfix.js"></script> <![endif]-->
 <!--[if lt IE 7]> <script type="text/javascript" src="http://www.doxdesk.com/file/software/js/minmax.js"></script> <![endif]-->
-
-<?php include("dialogs.php");?>
-
-<div id="Wrapper1">
-<div id="Wrapper2">
-<div id="Wrapper3">
 
 <!-- 좌상단 사이트 로고/이름 표시 -->
 <div id="Title">

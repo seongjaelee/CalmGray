@@ -5,7 +5,6 @@
 
 #simplemodal-overlay {background-color: Black; cursor:wait;}
 #simplemodal-container { padding: 10px 20px; background-color: White; border-radius:10px; }
-.dialog { display:none; }
 .dialog h1 { margin-bottom: 10px; border: 0; }
 .dialog a {color:#ddd;}
 .dialog label { display:block; }
@@ -49,7 +48,6 @@ table.closure, table.closure td { border: 1px solid #ccd; }
 textarea { border: 1px solid #475059; }
 
 /* 메뉴 */
-table.closure td { background-color: #E9ECEF; } /* quotes */
 #MainMenuTop {	background-color:#475059; }
 #MainMenu li ul { background-color: #475059; }
 #MainMenu li { color: White; }
@@ -59,6 +57,7 @@ table.closure td { background-color: #E9ECEF; } /* quotes */
 #wikiTrailer { background-color: #edeeef; }
 div.message { background-color:#ffefcc; }
 table.wiki tr.odd { background-color:#edeeef; }
+table.closure td { background-color: #E9ECEF; } /* quotes */
 
 div.diff-added { background-color:#E0FFE0; }
 div.diff-removed { background-color:#E9EAB8; }
@@ -124,28 +123,12 @@ img.imgCenter { display:block; margin: 6px auto 5px; }
 
 body
 {
-	margin: 0;
-	padding: 0;
-	background-color: Black;
-}
-
-#Wrapper1
-{
-	background: Black url(../imgs/bg_texture.png) repeat-x fixed;
-}
-
-#Wrapper2
-{
-	background: url(../imgs/wallpaper.png) top center no-repeat fixed;
-	min-height:800px;
-}
-
-#Wrapper3
-{
-	width: 90%;
-	max-width: 100em;
-	min-width: 60em;
 	margin: 0 auto;
+	padding: 0;
+	width: 90%;
+	min-width: 60em;
+	max-width: 100em;
+	background: Black url(../imgs/body.jpg) repeat;
 }
 
 /* Search */
@@ -174,7 +157,13 @@ body
 /* ~Search */
 
 /* Menu */
-#MainMenuTop { height:30px; line-height:30px; border-top-left-radius: 12px; border-top-right-radius: 12px; padding-left:1.5em; }
+#MainMenuTop { 
+	height:30px; line-height:30px; border-top-left-radius: 12px; border-top-right-radius: 12px; padding-left:1.5em; 
+  background: #475059; /* for non-css3 browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#475059', endColorstr='#374049'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#475059), to(#374049)); /* for webkit browsers */
+	background: -moz-linear-gradient(top, #475059, #374049); /* for firefox 3.6+ */
+}
 #MainMenu { list-style: none; padding: 0; margin: 0; display: inline; }
 #MainMenu li { margin: 0px; position: relative; /*--Declare X and Y axis base for sub navigation--*/ float: left; }
 #MainMenu div.mainMenuItem { cursor: pointer; padding: 0 8px; display: inline-block; }
@@ -189,6 +178,11 @@ body
 	left: 0;
 	display: none;
 	z-index: 3000; /* _extra.css를 보면 엄청나게 높은 z-index들을 써대고 있다. */
+	
+	background: #475059; /* for non-css3 browsers */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#374049', endColorstr='#273039'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#374049), to(#273039)); /* for webkit browsers */
+	background: -moz-linear-gradient(top, #374049, #273039); /* for firefox 3.6+ */
 }
 
 #MainMenu .MenuPanel li { cursor: pointer; margin: 0; line-height:22px; padding: 0 1.5em; float: none; display: block; }
@@ -229,8 +223,10 @@ pre.quote { padding: 11px 1.5em; white-space:pre-wrap; white-space: -moz-pre-wra
 
 /* EDIT */
 #editor_info ul { padding: 22px 0 0; margin: 0; }
-#editor_info li { list-style: none; margin: 0; padding: 0; height: 22px; }
-#editor_info label { float: left; display: block; width: 80px; text-align: right; padding-right: 10px; }
+#editor_info li { list-style: none; margin: 0; padding: 0; height: 33px; }
+#editor_info label { float: left; display: block; width: 80px; text-align: right; padding-right: 10px; line-height:33px; }
+#editor_info input { margin: 5px 0 6px; height: 20px; padding:0; }
+#editor_info select { margin: 5px 0 6px; height: 25px; padding:0; }
 .commentForm { margin-top: 11px; }
 /* ~EDIT */
 

@@ -12,12 +12,9 @@
  */
 ?>
 <div style='clear:both;'></div>
-</div>
+</div> <!-- wikiMain -->
 
 <div id='wikiFooter'>
 	Powered by <a href="http://moniwiki.kldp.net/wiki.php" target=_blank>MoniWiki</a> / 
 	Designed by <a href="http://bluebrown.net" target=_blank>Fantics</a>
-</div>
-</div>
-</div>
 </div>
