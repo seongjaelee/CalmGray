@@ -3,57 +3,182 @@
 @import url("../../../css/_calendar.css");
 /*@import url("../../../css/_user.css");*/
 
-body, textarea {
-	font-family:"malgun gothic", serif;
-	font-size:12px;
-}
 
-.iphone
-{
-	padding: 20px;
-	border:1px solid #ddd;
-	display:table; 
-	border-radius:12px 12px; 
-}
+#simplemodal-overlay {background-color: Black; cursor:wait;}
+#simplemodal-container { padding: 10px 20px; background-color: White; border-radius:10px; }
+.dialog { display:none; }
+.dialog h1 { margin-bottom: 10px; border: 0; }
+.dialog a {color:#ddd;}
+.dialog label { display:block; }
+.dialog input[type='text'] { width:100px; display:block; width:300px; font-size: 2em; }
+.dialog input[type='password'] { width:100px; display:block; width:300px; font-size: 2em; }
+.dialog input[type='button'] { padding:5px 15px; margin:0; font-size: 1.2em; }
+.dialog input[type='submit'] { padding:5px 15px; margin:0; font-size: 1.2em; }
+.dialog a.modalCloseImg {background:url(../img/basic/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
+.dialog th { border-bottom: 2px solid #ddd; text-align:left;  padding: 4px 4px 0px 8px; }
+.dialog tr { border-bottom: 1px solid #ddd; }
+.dialog td { margin: 0; padding: 4px 4px 0px 8px; }
+.dialog tbody	tr:hover { background-color:#ddd; }
+.dialog table { border-collapse: collapse; width:300px; }
+.dialog .footer { text-align: right; padding: 40px 0 10px 0; }
 
-.iphone-item
-{
-	font-size:0.9em; 
-	text-align:center; 
-	display:inline-block;
-	width:72px; 
-	margin-bottom:5px;
-}
-
-.iphone-item img
-{
-	border:0;
-}
-
-#wikiBody .iphone-item a, #wikiBody .iphone-item a:visited, #wikiBody .iphone-item a:active, #wikiBody .iphone-item a:link
-{
-	color: #333;
-	text-decoration: none;
-	text-shadow:#ddd 0 1px 0; 
-}
-
-#wikiBody .iphone-item a:hover
-{
-	font-weight:bold;
-	color:Black;
-}
-
-body 
-{
-	margin: 20px 50px;
-	min-width:500px;
+body, textarea, input, table, td {
+	font-family: "Malgun Gothic", serif;
+	font-size: 12px;
 	line-height: 1.6;
-	background: url("../imgs/bg_texture.png")
+}
+
+body
+{
+	background: Black url(../imgs/bg_texture.png) repeat-x;
+	border: 0;
+	margin: 0 auto 20px;
+	max-width: 60em;
+	min-width: 600px;
+	width: 95%;
+}
+
+#Wallpaper {
+	z-index: -1;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	background: url('../imgs/bg.jpg');
 }
 
 a:link { color: #369;}
 a:visited { color: #369;}
 a:hover { color: #47a; }
+
+/* Search */
+#SearchBox
+{
+	margin: 3px 3px 3px 0;
+	border:0;
+	float: right;
+}
+
+#SearchBox input
+{
+	margin: 0;
+	height: 24px;
+	border: none;
+	float: left;
+	font-family: "Malgun Gothic";
+}
+
+#SearchBox input[type='text'] {
+	padding: 0 30px 0 4px;
+	width: 120px;
+	outline: none;
+	border-top-right-radius: 8px;
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	font-size: 16px;
+	line-height: 22px;
+	font-weight: bold;
+}
+
+#SearchBox input[type='text']:focus,
+#SearchBox input[type='text']:hover {
+	background-color:#ddd;
+}
+
+#SearchBox input[type='submit'] {
+	width: 25px;
+	padding: 0 -25px 0 10px;
+	margin-left: -25px;
+	background: transparent url('../imgs/search-icon.png') no-repeat;
+	cursor: pointer;
+}
+/* ~Search */
+
+/* Menu */
+	#MainMenuTop
+	{
+	background-color:#475059;
+	height:2.5em;
+	line-height:2.5em;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+	}
+
+	#MainMenu
+	{
+	list-style: none;
+	padding: 0 0 0 10px;
+	margin: 0;
+	display: inline;
+	}
+	
+	#MainMenu a
+	{
+	text-decoration: none;
+	}
+
+	#MainMenu > li
+	{
+	margin: 0px;
+	position: relative; /*--Declare X and Y axis base for sub navigation--*/
+	color: white;
+	display: inline;
+	}
+
+	#MainMenu div.mainMenuItem
+	{
+	cursor: pointer;
+	padding: 0 8px;
+	display: inline-block;
+	}
+
+	#MainMenu > li > ul
+	{
+	background-color: #475059;
+	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
+	margin: 0;
+	padding: 10px 0;
+	list-style: none;
+	line-height: 1.5em;
+	left: 0;
+	display: none;
+	z-index: 10;
+	}
+
+	#MainMenu > li > ul > li
+	{
+	cursor: pointer;
+	margin: 0;
+	padding: 2px 20px 2px 20px;
+	}
+
+	#MainMenu hr
+	{
+	padding: 0;
+	margin: 2px 15px;
+	}
+
+	#MainMenu div.menuItem
+	{
+	width: auto;
+	display: inline;
+	margin-right: 25px;
+	}
+
+	#MainMenu div.menuItem a
+	{
+	color: white;
+	}
+
+	#MainMenu div.shortcut 
+	{
+		font-family: Consolas,Monotype,Lucida Console,lucida,monospace;
+		margin-left: -15px;
+		display: inline;
+		text-align: right;
+		float: right;
+	}
+/* ~Menu */
 
 #wikiHeader
 {
@@ -102,7 +227,7 @@ tt.sister {
 pre.wiki {
   padding-left:6px;
   padding-top:6px; 
-  font-family:Consolas,Lucida TypeWriter,monotype,lucida,monospace;
+  font-family:Consolas,Monotype,Lucida Console,lucida,monospace;
 }
 
 pre.console {
@@ -194,7 +319,7 @@ dd { margin:0 0 0 12px; padding: 0;}
 
 div.diff 
 {
-	font-family:Consolas,Lucida Sans TypeWriter,Lucida Console,monospace;
+	font-family:Consolas,Monotype,Lucida Console,lucida,monospace;
 	font-size:0.9em;
 }
 
@@ -207,7 +332,7 @@ div.diff-removed {
 }
 
 div.diff-sep {
-	font-family:Consolas,Lucida Sans TypeWriter,Lucida Console,monospace;
+	font-family:Consolas,Monotype,Lucida Console,lucida,monospace;
 	font-size:0.9em;
   background-color:#000000;
   color:#FFD700; /* gold */
@@ -250,64 +375,36 @@ div.message h3
   background-color:#FFFF40;
 }
 
-#wikiGoto 
-{
-	float:right;
-	border: 0;
-  font-weight: bold;
-	padding: 4px;
-}
-
-#wikiGoto .text{
-	border-bottom-left-radius: 4px 4px;
-	border-bottom-right-radius: 4px 4px;
-	border-top-left-radius: 4px 4px;
-	border-top-right-radius: 4px 4px;
-	border: 0;
-	padding-left: 5	px;
-	margin: 0;
-	font-weight: bold;
-	color: #aaa;
-}
-
-#wikiGoto .text:focus{
-    outline: 0;
-    color: #555;
-}
-
-#go input[value="Go"] 
-{
-	display:none;
-}
-
-input[value="OK"] {
-  font-family:Tahoma,Lucida,sans-serif;
-  font-size:10px;
-  width:25px;
-}
-
-
 table.closure, td.closure{
   background-color: #E9ECEF;
 }
 
-#title 
+#Title 
 {
-  font-size:3.3em;
-  line-height: 1.0em;
-  letter-spacing: -0.03em;
-  text-decoration: none;
-  color: #ffffff;
-  text-shadow: #333 1px 2px 4px;
+	padding-top: 40px;
 }
 
-/*  */
-.wikiHr {
-  border:0px solid;
-  padding: 0px 0px; /* */
-  margin-top:0px;
-  height:1px;  
-/* background: #000 url(hr1.gif) no-repeat scroll center; */
+#Title span
+{
+	letter-spacing: -0.05em;
+  line-height: 1.0em;
+	font-family: "Segoe UI Light", "Segoe UI", "Malgun Gothic", Tahoma, sans-serif;
+  text-shadow: #333 1px 2px 4px;
+	line-height: 60px;
+	font-size: 60px;
+}
+
+#Title a 
+{
+	text-decoration: none;
+	color: White;
+}
+
+hr 
+{
+	border: 0;
+  height:	1px;
+  background-color: #ddd;
 }
 
 #wikiTrailer 
@@ -315,6 +412,7 @@ table.closure, td.closure{
 	background-color: #edeeef;
   padding-left: 20px;
 }
+
 .wikiNavigation {
   background-color:#E0E0E0; 
   padding-top: 5px;
@@ -337,66 +435,15 @@ a:-webkit-any-link
 	text-decoration: none;
 }
 
-#wikiMenu, #wikiSideMenu
-{
-	background: #475059;
-	border-bottom-left-radius: 4px 4px;
-	border-bottom-right-radius: 4px 4px;
-	border-top-left-radius: 4px 4px;
-	border-top-right-radius: 4px 4px;
-	padding: 4px 2px;
-	border-bottom: solid 1px #333;
-	border-right: solid 1px #333;
-	text-shadow: #000 0px 1px 0px;
-}
-
-#wikiMenu ul, #wikiSideMenu ul {
-  margin:0;
-  padding:0;
-  list-style:none;
-}
-
-#wikiMenu li, #wikiSideMenu li {
-  display:inline;
-  margin:0;
-  padding:0;
-}
-
 .wikiHints { display:none; }
 #smileyChooser { display:none; }
-
-#wikiMenu a:hover, #wikiSideMenu a:hover {
-  color: #ffffff;
-  text-decoration: none;
-}
-
-#wikiMenu li, #wikiSideMenu li
-{
-	font-size: 0.9em;
-  margin: 0;
-  padding: 0 5px 0 10px;
-  color: #ddd;
-  font-weight: bold;
-  text-decoration:none;
-}
-
-#wikiMenu a, #wikiSideMenu a, #wikiSideMenu li
-{
-  color: #ddd;
-  font-weight: bold;
-  text-decoration:none;
-}
 
 #wikiMain
 {
   color: black;
   background-color: #fff;
-  border-right: 1px solid #666;
-  border-bottom: 1px solid #666;
-	border-bottom-left-radius: 4px 4px;
-	border-bottom-right-radius: 4px 4px;
-	border-top-left-radius: 4px 4px;
-	border-top-right-radius: 4px 4px;
+	border-bottom-left-radius: 12px;
+	border-bottom-right-radius: 12px;
 	padding-top: 10px;
 	padding-bottom: 30px;
 }
@@ -426,14 +473,14 @@ a:-webkit-any-link
 {
 	padding: 5px 5px 20px 0;
 	font-size: 0.9em;
-	color: #222;
+	color: #ccd;
   text-align: right;
-  text-shadow: #ddd 0px 1px 1px;
+  text-shadow: Black 0 1px 1px; 
 }
 
 #wikiFooter a
 {
-	color: #222;
+	color: #ccd;
 }
 
 #wikiHint {
@@ -466,24 +513,20 @@ div.blog-comments { }
 div.blog-comment { padding:1em 1em 1em 2em; margin-bottom:5px;border-left: 1px dashed #7B9AC5; background-color:#F2F6EC;}
 div.blog-comments .seperator { display:none;}
 div.blog-action { text-align:right; font-size:7px; }
-
 div.blog-date { font-size:18px; font-weight:bold; padding-bottom:5px;}
 span.blog-user { font-size:10px; }
-
 div.blog-summary { margin-bottom:10px;}
-
 div.trackback-hint { font-size: 10px; padding: 1em 1em 1em 1em;background-color: #eee;}
+
 /* Calendar */
 td.day { background: #e0e0e0; text-align: center;}
 td.today { background:#fff; text-align: center;}
-span.blogged {
-  text-decoration:none;
-  font-weight:bold; color:#000000; text-align: center;
-}
+span.blogged { text-decoration:none; font-weight:bold; color:#000000; text-align: center; }
 .Calendar a{text-decoration:none;color:black;}
 
 /* HierarchicalWiki */
-div.wikiGroup {
+div.wikiGroup 
+{
   font-family:Tahoma,Lucida,sans-serif;
   font-size:10px;
 }
@@ -497,21 +540,13 @@ div.wikiGroup {
 
 #wikiLogin input {
   font-family:Verdana,sans-serif;
-  //border:1px solid #848284;
   font-size:7px;
   font-weight:normal;
 }
 
-#commentForm {
-  padding:5px;
-  background-color:#eeeeee;
-}
-
-#commentForm input {
-  //border:1px solid #848284;
-  font-size:7px;
-  font-family:Verdana,sans-serif;
-}
+/* Comment */
+#commentForm { padding:5px; background-color:#eeeeee; }
+#commentForm input { font-size:7px; font-family:Verdana,sans-serif; }
 
 /* enscript syntax */
 div.wikiPre i,div.wikiPre b{
@@ -539,3 +574,67 @@ span.externalLink {
 span.lineNumber {
   color:#ffff00;
 }
+
+/* IPHONE */
+.iphone
+{
+	padding: 20px;
+	border:1px solid #ddd;
+	display:table; 
+	border-radius:12px 12px; 
+}
+
+.iphone-item
+{
+	font-size:0.9em; 
+	text-align:center; 
+	display:inline-block;
+	width:72px; 
+	margin-bottom:5px;
+}
+
+.iphone-item img
+{
+	border:0;
+}
+
+#wikiBody .iphone-item a, #wikiBody .iphone-item a:visited, #wikiBody .iphone-item a:active, #wikiBody .iphone-item a:link
+{
+	color: #333;
+	text-decoration: none;
+	text-shadow:#ddd 0 1px 0; 
+}
+
+#wikiBody .iphone-item a:hover
+{
+	font-weight:bold;
+	color:Black;
+}
+/* ~IPHONE */
+
+/* EDITOR */
+#editor_info ul
+{
+	padding: 20px 0 0;
+	margin: 0;
+}
+#editor_info li
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 30px;
+}
+#editor_info label
+{
+	float: left;
+	display: block;
+	width: 80px;
+	text-align: right;
+	padding-right: 10px;
+}
+.commentForm
+{
+	margin-top: 1em;
+}
+/* ~EDITOR */
