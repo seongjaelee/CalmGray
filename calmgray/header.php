@@ -15,20 +15,26 @@
 	$theme_use_logo = true; // 사이트 로고를 좌상단에 표시합니다.
 	$theme_use_sitename = false; // 사이트 이름을 좌상단에 표시합니다.
 ?>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <!--<script type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/jquery-1.4.2.min.js"></script>-->
 <script type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/shortcut.js"></script>
 <script type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/jquery.simplemodal-1.3.5.min.js"></script>
+
+<!--<script type="text/javascript" src="http://tablesorter.com/jquery.tablesorter.js"></script>-->
 <script type="text/javascript" src="<?php echo $this->themeurl;?>/menu.js"></script>
-<!--[if IE 6]> <style type="text/css"> body { width:60em; background: Black url(<?php echo $this->themeurl;?>/imgs/bg.jpg) top center no-repeat; } #SearchBox input#SearchBoxSubmit { background: transparent url('<?php echo $this->themeurl;?>/imgs/search-icon.png') no-repeat; } </style> <![endif]-->
+<!--<script type="text/javascript" src="http://jquery-multifile-plugin.googlecode.com/svn/trunk/jquery.MultiFile.pack.js"></script>-->
+<!--[if IE 6]> <style type="text/css"> #SearchBox input#SearchBoxSubmit { background: transparent url('<?php echo $this->themeurl;?>/imgs/search-icon.png') no-repeat; } </style> <![endif]-->
 <!--[if IE 6]> <link rel="stylesheet" type="text/css" href="<?php echo $this->themeurl;?>/css/ie6.css" /> <![endif]-->
 <!--[if IE 7]> <link rel="stylesheet" type="text/css" href="<?php echo $this->themeurl;?>/css/ie7.css" /> <![endif]-->
 <!--[if lt IE 7]> <script defer type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/pngfix.js"></script> <![endif]-->
-
-<img id="Wallpaper2" src="<?php echo $this->themeurl;?>/imgs/bg_texture.png">
-<img id="Wallpaper" src="<?php echo $this->themeurl;?>/imgs/bg1.jpg">
+<!--[if lt IE 7]> <script type="text/javascript" src="http://www.doxdesk.com/file/software/js/minmax.js"></script> <![endif]-->
 
 <?php include("dialogs.php");?>
+
+<div id="Wrapper1">
+<div id="Wrapper2">
+<div id="Wrapper3">
 
 <!-- 좌상단 사이트 로고/이름 표시 -->
 <div id="Title">
@@ -65,7 +71,7 @@
 		<li>
 			<div class="mainMenuItem">문서(<u><?php echo $menuIndex++;?></u>)</div>
 			<ul class="MenuPanel" style="width:150px;">
-				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=edit');?>">문서 편집</a></div><div class="shortcut">E / W</div></li>
+				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=edit');?>">문서 편집</a></div><div class="shortcut">E/W</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=diff');?>">전 버전과 비교</a></div><div class="shortcut">D</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=info');?>">문서 정보</a></div><div class="shortcut">I</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=show');?>">문서 읽기</a></div><div class="shortcut">R</div></li>
@@ -101,7 +107,7 @@
 if ($DBInfo->use_scrap && $DBInfo->user->id != 'Anonymous') {
 	echo "		<li>\n";
 	echo "			<div class='mainMenuItem'>즐겨찾기(<u>".$menuIndex."</u>)</div>\n";
-	echo "			<ul class='MenuPanel' style='min-width:170px;'>\n";
+	echo "			<ul class='MenuPanel' style='min-width:200px; overflow:hidden;'>\n";
 	$isScrapped = false;
 	$menuIndex += 1;
 	
@@ -135,7 +141,7 @@ if ($DBInfo->use_scrap && $DBInfo->user->id != 'Anonymous') {
 <?php
 	echo "		<li>\n";
 	echo "			<div class='mainMenuItem'>바뀐글(<u>".$menuIndex."</u>)</div>\n";
-	echo "			<ul class='MenuPanel' style='min-width:170px;'>\n";
+	echo "			<ul class='MenuPanel' style='min-width:200px; overflow:hidden;'>\n";
 	$menuIndex += 1;
 	$list = array();
 	$count = 0;

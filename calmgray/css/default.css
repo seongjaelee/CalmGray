@@ -26,11 +26,14 @@
 h1, h2, h3, h4, h5, h6 { color: #555; border-bottom: 1px solid #ddd; }
 .wikiGroup, .wikiTitle a span { color: #555; }
 #Title a { color: White; } /* 사이트 제목 */
+.message h3 { color: Black; }
 
 /* 링크 */
-a, a:link, a:visitied { color: #3F5EB1; }
-#wikiTrailer a:visited, #wikiTrailer a:link, #wikiBody a:link, #wikiBody a:visited { color: #3F5EB1; }
+a, a:link, a:visitied { color: #3F5EB1; text-decoration: none; }
+#wikiTrailer a, #wikiBody a { color: #3F5EB1; text-decoration: none; }
+#MainMenu .MenuPanel li a { text-decoration: none; }
 a:hover { color: #47a; }
+.wikiTitle a { color: #555; text-decoration: none; }
 
 /* 옅은 회색 */
 hr { background-color: #ccd; }
@@ -41,20 +44,21 @@ table.closure, table.closure td { border: 1px solid #ccd; }
 #SearchBox input[type='text']:focus,
 #SearchBox input[type='text']:hover { background-color:#ccd; }
 .foot .separator .wiki { background-color: #ccd; }
-#toc { border-color: #ccd; }
-#wikiFooter {	color: #ccd; }
-#wikiFooter a { color: #ccd; }
+#toc { border: 1px solid #ccd; }
+#wikiFooter, #wikiFooter a {	color: #ccd; }
+textarea { border: 1px solid #475059; }
 
 /* 메뉴 */
 table.closure td { background-color: #E9ECEF; } /* quotes */
 #MainMenuTop {	background-color:#475059; }
-#MainMenu > li > ul { background-color: #475059; }
-#MainMenu > li { color: White; }
+#MainMenu li ul { background-color: #475059; }
+#MainMenu li { color: White; }
 #MainMenu div.menuItem a { color: White; }
 #wikiMain { background-color: White; }
 
 #wikiTrailer { background-color: #edeeef; }
-div.message { background-color:#FFFF40; }
+div.message { background-color:#ffefcc; }
+table.wiki tr.odd { background-color:#edeeef; }
 
 div.diff-added { background-color:#E0FFE0; }
 div.diff-removed { background-color:#E9EAB8; }
@@ -64,6 +68,7 @@ span.diff-removed, del.diff-removed { background-color: #FF0000; }
 
 /* Typography */
 body, textarea, input, table, td { font-family: Verdana, "Malgun Gothic", Tahoma, "Segoe UI", sans-serif; }
+.message h3 { font-family: Verdana, "Malgun Gothic", Tahoma, "Segoe UI", sans-serif; }
 #Title span { font-family: "Segoe UI Light", "Segoe UI", "Malgun Gothic", Tahoma, sans-serif; }
 .WikiTitle { font-family: "Segoe UI Light", "Segoe UI", "Malgun Gothic", Tahoma, sans-serif; }
 h1, h2, h3, h4, h5, h6 { font-family: "Segoe UI", "Malgun Gothic", Tahoma, sans-serif; }
@@ -96,15 +101,17 @@ tt.foot { vertical-align: super; font-size: 9px; line-height: 0; }
 tt.sister { vertical-align: super; font-size: 9px; line-height: 0; }
 sub, sup { line-height:0; }
 div.indent { padding-left:1.5em; }
+div.message h3 { font-size: 12px; line-height: 22px; border: 0; }
 
 table.wiki, table.info, table.closure
-{ width:100%; border-collapse: collapse; border: 1px solid; margin-top: -1px; } /* 줄 수보다 선 수가 하나 많기 때문에 -1 만큼 올려준다.*/
+{ width:100%; border-collapse: collapse; margin-top: -1px; } /* 줄 수보다 선 수가 하나 많기 때문에 -1 만큼 올려준다.*/
 table.wiki th, table.wiki td, table.info th, table.info td
-{ padding: 5px 0.5em; border-collapse: collapse; border: 1px solid; } /* 표 줄간 여백은 0.5배인 11px 이다: 10(margins) + 1(line). */
-table.closure td { padding: 5px 1.5em; text-align:center; font-size:15px; line-height:33px; border-collapse: collapse; border-bottom: 1px solid; } /* quotes */
+{ padding: 5px 0.5em; border-collapse: collapse; } /* 표 줄간 여백은 0.5배인 11px 이다: 10(margins) + 1(line). */
+table.closure td { padding: 5px 1.5em; text-align:center; font-size:15px; line-height:33px; border-collapse: collapse; } /* quotes */
 textarea.wiki { background-color: Transparent; width:100%; margin-top:-1px; }
 input[type='text'], input[type='password'] { height: 20px; padding: 0px; }
 input[type='submit'], input[type='button'] { height: 30px; }
+button { height: 30px; }
 
 /* IMAGES */
 .imgAttach { display:inline; }
@@ -117,32 +124,29 @@ img.imgCenter { display:block; margin: 6px auto 5px; }
 
 body
 {
-	background: #3765A1 /*url(../imgs/bg_texture.png) repeat-x*/;
-	border: 0;
-	margin: 0 auto 20px;
-	max-width: 60em;
-	min-width: 600px;
-	width: 95%;
+	margin: 0;
+	padding: 0;
+	background-color: Black;
 }
 
-#Wallpaper {
-	z-index: -1;
-	left:0;
-	top:0;
-	position:fixed;
-	height:0;
-	background: url('../imgs/bg1.jpg');
+#Wrapper1
+{
+	background: Black url(../imgs/bg_texture.png) repeat-x fixed;
 }
 
-#Wallpaper2 {
-	z-index: -2;
-	left:0;
-	top:0;
-	position:fixed;
-	height:0;
-	background: url('../imgs/bg_texture.png	') repeat-x;
+#Wrapper2
+{
+	background: url(../imgs/wallpaper.png) top center no-repeat fixed;
+	min-height:800px;
 }
 
+#Wrapper3
+{
+	width: 90%;
+	max-width: 100em;
+	min-width: 60em;
+	margin: 0 auto;
+}
 
 /* Search */
 #SearchBox { margin: 3px 3px 3px 0; border: 0; float: right; }
@@ -172,22 +176,22 @@ body
 /* Menu */
 #MainMenuTop { height:30px; line-height:30px; border-top-left-radius: 12px; border-top-right-radius: 12px; padding-left:1.5em; }
 #MainMenu { list-style: none; padding: 0; margin: 0; display: inline; }
-#MainMenu > li { margin: 0px; position: relative; /*--Declare X and Y axis base for sub navigation--*/ float: left; }
+#MainMenu li { margin: 0px; position: relative; /*--Declare X and Y axis base for sub navigation--*/ float: left; }
 #MainMenu div.mainMenuItem { cursor: pointer; padding: 0 8px; display: inline-block; }
 
-#MainMenu > li > ul
+#MainMenu ul
 {
 	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
 	margin: 0;
+	padding: 0;
 	padding: 11px 0;
 	list-style: none;
-	line-height: 1.5em;
 	left: 0;
 	display: none;
 	z-index: 3000; /* _extra.css를 보면 엄청나게 높은 z-index들을 써대고 있다. */
 }
 
-#MainMenu > li > ul > li { cursor: pointer; margin: 0; line-height:22px; padding: 0 1.5em; }
+#MainMenu .MenuPanel li { cursor: pointer; margin: 0; line-height:22px; padding: 0 1.5em; float: none; display: block; }
 #MainMenu hr { padding: 0; margin: 2px 15px; }
 #MainMenu div.menuItem { width: auto; display: inline; margin-right: 25px; }
 #MainMenu div.shortcut { margin-left: -15px; display: inline; text-align: right; float: right; }
@@ -204,12 +208,12 @@ body
 #wikiHeader { padding-top: 22px; margin-bottom: 22px; }
 .wikiTitle { line-height: 44px; text-shadow: #ddd 1px 1px 1px; letter-spacing: -0.06em; text-decoration: none; font-size: 34px; }
 .wikiGroup { display: block; margin-bottom:-11px; margin-top:-11px; } /* HierarchicalWiki */
-#wikiTrailer { line-height: 22px; margin-top:-22px; margin-bottom:22px; }
+#wikiTrailer { line-height: 22px; margin:-22px -3em 22px; padding: 0 3em; }
+div.message { line-height: 22px; margin:-22px -3em 22px; padding: 0 3em; }
 #toctitle { height: 22px; } /* toctitle 안의 h2가 inline이 되면서 내부의 줄간 정보가 무시된다. */
 #toctitle h2 { font-size: 17px; line-height: 21px; }
-#toc { border: 1px solid; margin-top: -1px; padding:5px 1.5em 5px;}
+#toc { margin-top: -1px; padding:5px 1.5em 5px;}
 #toc a { text-decoration: none; }
-div.message { margin-top:-22px; margin-bottom:22px; }
 div.sectionEdit { margin: 0; }
 .foot .separator .wiki { height: 1px; margin:0; padding:0; font-size: 0; color: Transparent; display: block; } /* 주석 상단 수평선 */
 .perma { display:none; }
@@ -275,49 +279,8 @@ td.today { background:#fff; text-align: center;}
 span.blogged { text-decoration:none; font-weight:bold; color:#000000; text-align: center; }
 .Calendar a{text-decoration:none;color:black;}
 
-/* login */
-#wikiLogin { font-size:7pt; font-weight:bold; }
-#wikiLogin input { font-size:7px; font-weight:normal; }
-
 /* enscript syntax */
 div.wikiPre i,div.wikiPre b{ font-weight: normal; font-style: normal; }
 
 span.externalLink { display: none; }
 span.lineNumber { color:#ffff00; }
-
-/* IPHONE */
-.iphone
-{
-	padding: 20px;
-	border:1px solid #ddd;
-	display:table; 
-	border-radius:12px 12px; 
-}
-
-.iphone-item
-{
-	font-size:0.9em; 
-	text-align:center; 
-	display:inline-block;
-	width:72px; 
-	margin-bottom:5px;
-}
-
-.iphone-item img
-{
-	border:0;
-}
-
-#wikiBody .iphone-item a, #wikiBody .iphone-item a:visited, #wikiBody .iphone-item a:active, #wikiBody .iphone-item a:link
-{
-	color: #333;
-	text-decoration: none;
-	text-shadow:#ddd 0 1px 0; 
-}
-
-#wikiBody .iphone-item a:hover
-{
-	font-weight:bold;
-	color:Black;
-}
-/* ~IPHONE */

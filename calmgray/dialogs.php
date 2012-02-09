@@ -1,6 +1,6 @@
 
 
-<div id='DialogShortcut' class='dialog'>
+<div id='DialogShortcut' class='dialog' style='display: none;'>
 	<h1>단축키 목록</h1>
 	<table style='width:500px;'>
 		<thead>
@@ -39,7 +39,7 @@
 	</div>
 </div>
 
-<div id='DialogWikiGrammar' class='dialog'>
+<div id='DialogWikiGrammar' class='dialog' style='display: none;'s>
 	<style>#DialogWikiGrammar pre {padding:0; margin:0;}</style>
 	<h1>위키 기본 문법</h1>
 	<table style='width:600px;'>
@@ -72,12 +72,11 @@
 	</div>
 </div>
 
-<div id='DialogCreatePage' class='dialog'>
+<div id='DialogCreatePage' class='dialog' style='display: none;'>
 	<h1>문서 생성</h1>
 	<script type="text/javascript">
 		$(document).ready( function() {
 			$("#DialogCreatePageForm").submit( function () {
-				window.location = getWikiSiteLink( $("#DialogCreatePageName").attr('value') ) + '?action=edit';
 				$('#DialogCreatePageForm').attr('action', getWikiSiteLink( $("#DialogCreatePageName").attr('value') ) + '?action=edit'); $('#DialogCreatePageForm').submit();
 			} );
 		} );
@@ -92,7 +91,7 @@
 	</form>
 </div>
 
-<div id='DialogSearchTitle' class='dialog'>
+<div id='DialogSearchTitle' class='dialog' style='display: none;'>
 	<h1>제목 검색</h1>
 	<form method='get'>
 		<input type='hidden' name='action' value='titlesearch'>
@@ -104,27 +103,36 @@
 	</form>
 </div>
 
-<div id='DialogGoto' class='dialog'>
+<div id='DialogGoto' class='dialog' style='display: none;'>
 	<h1>바로 가기</h1>
 	<script type="text/javascript">
-		$(document).ready( function() {
-		$("#DialogGotoForm").submit( function () { $("#DialogGotoForm").attr('action', $("#DialogGotoName").attr('value')); } );
-		});
+	$(document).ready( function() {
+		$("#DialogGotoForm").submit( function () { $("#DialogGotoACtion").attr('value', $("#DialogGotoName").attr('value')); } );
+	});
 	</script>
 	<form id='DialogGotoForm'>
 		<input type='text' id='DialogGotoName' name='value' style='width:100px; display:block; width:300px; font-size: 2em;'>
 		<div style='text-align:right; padding:10px 0;'>
+			<input type='hidden' id='DialogGotoAction' name='action' value=''>
 			<input type='submit' value='이동'>
 			<input type='button' value='닫기' onClick='$.modal.close();'>
 		</div>
 	</form>
 </div>
 
-<div id='DialogSearch' class='dialog'>
+<div id='DialogSearch' class='dialog' style='display: none;'>
 	<h1>본문 검색</h1>
-	<form method='get'>
+	<script type="text/javascript">
+	$(document).ready( function() {
+		$("#DialogSearchForm").submit( function () {
+			$('#DialogSearchForm').attr('action', getWikiSiteLink( 'FrontPage' ) + '?action=fullsearch&value=' + $("#DialogSearchText").attr('value') + '&context=1' );
+			$('#DialogSearchForm').submit();
+		} );
+	} );
+	</script>
+	<form id='DialogSearchForm'>
 		<input type='hidden' name='action' value='fullsearch'>
-		<input type='text' name='value' style='width:100px; display:block; width:300px; font-size: 2em;'>
+		<input id='DialogSearchText' type='text' name='value' style='width:100px; display:block; width:300px; font-size: 2em;'>
 		<input type='hidden' name='context' value='1'>
 		<div class='footer'>
 			<input type='submit' value='검색'>
@@ -133,7 +141,7 @@
 	</form>
 </div>
 
-<div id='DialogLogIn' class='dialog'>
+<div id='DialogLogIn' class='dialog' style='display: none;'>
 <?php if ( $DBInfo->user->id == 'Anonymous' ) { ?>
 	<h1>로그인</h1>
 	<form method='post' action='UserPreferences'>

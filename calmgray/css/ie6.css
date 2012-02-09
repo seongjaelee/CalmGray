@@ -1,12 +1,12 @@
-#Wallpaper { display:none; }
 #MainMenu li { margin:0; position:relative; color:White; float:left; }
 #MainMenu .mainMenuItem { cursor:pointer; padding:0 8px; float:left; height:30px; line-height:30px; }
 #MainMenu ul { background-color:#475059; position:absolute; margin:0; padding:10px 0; list-style:none; line-height:1.5em; left:0; top:31px; display:none; z-index:10; }
 #MainMenu .MenuPanel li { margin:0; position:inherit; display:inherit; cursor:pointer; padding:2px 20px; width:100%; }
 #MainMenu div.menuItem { width:inherit; float:left; }
-#MainMenu div.shortcut { display:block; }
+#MainMenu div.shortcut { display:inline; float:none; }
 #MainMenu hr { display:none; }
 #SearchBox { padding-top:1px; }
 #SearchBox input { height:22px; font-size:14px; border:0; margin:0; }
 #SearchBox input#SearchBoxSubmit { height:24px; width:24px; cursor:pointer; }
 #MainMenu { display:block; }
+#wikiFooter, #wikiFooter a { color:#ccd; }

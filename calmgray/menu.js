@@ -186,8 +186,8 @@ function getWikiSiteLink( pageName )
 	if ((i = location.indexOf('#')) != -1) location = location.substring(0,i);
 	if ((i = location.indexOf('?')) != -1) location = location.substring(0,i);
 	if ((i = location.lastIndexOf('/')) == location.length - 1) location = location.substring(0,i);
-	if ( location.lastIndexOf('.php') == location.length - 4 ) location = location + '/FrontPage';
-	location = location.substring(0, location.lastIndexOf('/'));
+	//if ( location.lastIndexOf('.php') == location.length - 4 ) location = location + '/FrontPage';
+	location = location.substring(0, location.lastIndexOf('.php') + 4);
 	
 	return location + '/' + pageName;
 }
@@ -242,7 +242,8 @@ function addShortcuts()
 var modalOptions =
 { 
 	opacity: 80,
-	onShow: function() { currentDialog = true; }, 
+	focus: true,
+	onShow: function() { currentDialog = true; $('.simplemodal-container:first input[type="text"]:first').focus(); }, 
 	onClose: function() { currentDialog = false; $.modal.close(); }
 };
 
@@ -262,53 +263,9 @@ function initSlideMenu()
 	// Initialize Shortcuts
 	addShortcuts();
 	
-	
-	
-var winW = 630, winH = 460;
-	
-if (parseInt(navigator.appVersion)>3) {
- if (navigator.appName=="Netscape") {
-  winW = window.innerWidth;
-  winH = window.innerHeight;
- }
- if (navigator.appName.indexOf("Microsoft")!=-1) {
-  winW = document.body.offsetWidth;
-  winH = document.body.offsetHeight;
- }
+	// Initialize Tables
+	//$("table.wiki").tablesorter(); 
+	$('table.wiki tr:odd').addClass('odd');
 }
 
-		$('#Wallpaper').css('height', window.screen.height);
-		$('#Wallpaper').css('left', winW / 2 - 1200 / 750 * window.screen.height / 2);
-		$('#Wallpaper2').css('height', window.screen.height);
-		/*
-	if ( winW < winH )
-	{
-		$('#Wallpaper').css('height',winH);
-	}
-	else
-	{
-		$('#Wallpaper').css('left','-200');
-		$('#Wallpaper').css('width',winW);
-	}*/
-}
-
-$(window).resize( function() {
-var winW = 630, winH = 460;
-	
-if (parseInt(navigator.appVersion)>3) {
- if (navigator.appName=="Netscape") {
-  winW = window.innerWidth;
-  winH = window.innerHeight;
- }
- if (navigator.appName.indexOf("Microsoft")!=-1) {
-  winW = document.body.offsetWidth;
-  winH = document.body.offsetHeight;
- }
-}
-
-		//$('#Wallpaper2').css('height', window.screen.height);
-		//$('#Wallpaper').css('height', window.screen.height);
-		$('#Wallpaper').css('left', winW / 2 - 1200 / 750 * window.screen.height / 2);
-
-});
 $(document).ready( initSlideMenu );

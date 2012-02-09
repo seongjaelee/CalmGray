@@ -18,3 +18,6 @@
 	Powered by <a href="http://moniwiki.kldp.net/wiki.php" target=_blank>MoniWiki</a> / 
 	Designed by <a href="http://bluebrown.net" target=_blank>Fantics</a>
 </div>
+</div>
+</div>
+</div>
