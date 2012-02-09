@@ -254,11 +254,6 @@ function manageSearchBox()
 		if ( searchBoxFocused ) document.getElementById("SearchBox").elements["value"].blur();
 }
 
-function handleTocBr()
-{
-	if ( $('#toc') ) $('br', $('#toc').parent()).hide();
-}
-
 function initSlideMenu()
 {
 	// Initialize Menu Items
@@ -267,8 +262,53 @@ function initSlideMenu()
 	// Initialize Shortcuts
 	addShortcuts();
 	
-	// Toc Handling
-	handleTocBr();
+	
+	
+var winW = 630, winH = 460;
+	
+if (parseInt(navigator.appVersion)>3) {
+ if (navigator.appName=="Netscape") {
+  winW = window.innerWidth;
+  winH = window.innerHeight;
+ }
+ if (navigator.appName.indexOf("Microsoft")!=-1) {
+  winW = document.body.offsetWidth;
+  winH = document.body.offsetHeight;
+ }
 }
 
+		$('#Wallpaper').css('height', window.screen.height);
+		$('#Wallpaper').css('left', winW / 2 - 1200 / 750 * window.screen.height / 2);
+		$('#Wallpaper2').css('height', window.screen.height);
+		/*
+	if ( winW < winH )
+	{
+		$('#Wallpaper').css('height',winH);
+	}
+	else
+	{
+		$('#Wallpaper').css('left','-200');
+		$('#Wallpaper').css('width',winW);
+	}*/
+}
+
+$(window).resize( function() {
+var winW = 630, winH = 460;
+	
+if (parseInt(navigator.appVersion)>3) {
+ if (navigator.appName=="Netscape") {
+  winW = window.innerWidth;
+  winH = window.innerHeight;
+ }
+ if (navigator.appName.indexOf("Microsoft")!=-1) {
+  winW = document.body.offsetWidth;
+  winH = document.body.offsetHeight;
+ }
+}
+
+		//$('#Wallpaper2').css('height', window.screen.height);
+		//$('#Wallpaper').css('height', window.screen.height);
+		$('#Wallpaper').css('left', winW / 2 - 1200 / 750 * window.screen.height / 2);
+
+});
 $(document).ready( initSlideMenu );

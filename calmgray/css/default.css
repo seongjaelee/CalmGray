@@ -9,8 +9,8 @@
 .dialog h1 { margin-bottom: 10px; border: 0; }
 .dialog a {color:#ddd;}
 .dialog label { display:block; }
-.dialog input[type='text'] { width:100px; display:block; width:300px; font-size: 2em; }
-.dialog input[type='password'] { width:100px; display:block; width:300px; font-size: 2em; }
+.dialog input[type='text'] { height:33px; display:block; width:300px; font-size: 2em; }
+.dialog input[type='password'] { height:33px; display:block; width:300px; font-size: 2em; }
 .dialog input[type='button'] { padding:5px 15px; margin:0; font-size: 1.2em; }
 .dialog input[type='submit'] { padding:5px 15px; margin:0; font-size: 1.2em; }
 .dialog a.modalCloseImg {background:url(../img/basic/x.png) no-repeat; width:25px; height:29px; display:inline; z-index:3200; position:absolute; top:-15px; right:-16px; cursor:pointer;}
@@ -21,24 +21,103 @@
 .dialog table { border-collapse: collapse; width:300px; }
 .dialog .footer { text-align: right; padding: 40px 0 10px 0; }
 
+/* Colors */
+/* 굵은 제목 */
+h1, h2, h3, h4, h5, h6 { color: #555; border-bottom: 1px solid #ddd; }
+.wikiGroup, .wikiTitle a span { color: #555; }
+#Title a { color: White; } /* 사이트 제목 */
+
+/* 링크 */
+a, a:link, a:visitied { color: #3F5EB1; }
+#wikiTrailer a:visited, #wikiTrailer a:link, #wikiBody a:link, #wikiBody a:visited { color: #3F5EB1; }
+a:hover { color: #47a; }
+
+/* 옅은 회색 */
+hr { background-color: #ccd; }
+table.wiki, table.wiki td, table.wiki th { border: 1px solid #ccd; }
+table.info, table.info td, table.info th { border: 1px solid #ccd; }
+table.info tr:hover { background-color:#ccd; }
+table.closure, table.closure td { border: 1px solid #ccd; }
+#SearchBox input[type='text']:focus,
+#SearchBox input[type='text']:hover { background-color:#ccd; }
+.foot .separator .wiki { background-color: #ccd; }
+#toc { border-color: #ccd; }
+#wikiFooter {	color: #ccd; }
+#wikiFooter a { color: #ccd; }
+
+/* 메뉴 */
+table.closure td { background-color: #E9ECEF; } /* quotes */
+#MainMenuTop {	background-color:#475059; }
+#MainMenu > li > ul { background-color: #475059; }
+#MainMenu > li { color: White; }
+#MainMenu div.menuItem a { color: White; }
+#wikiMain { background-color: White; }
+
+#wikiTrailer { background-color: #edeeef; }
+div.message { background-color:#FFFF40; }
+
+div.diff-added { background-color:#E0FFE0; }
+div.diff-removed { background-color:#E9EAB8; }
+div.diff-sep { background-color:#000000; color:#FFD700; /* gold */ }
+span.diff-added, ins.diff-added { background-color: #60FF60; }
+span.diff-removed, del.diff-removed { background-color: #FF0000; }
+
 /* Typography */
-body, textarea, input, table, td, input { font-family: Verdana, "Malgun Gothic", Tahoma, "Segoe UI", sans-serif; }
+body, textarea, input, table, td { font-family: Verdana, "Malgun Gothic", Tahoma, "Segoe UI", sans-serif; }
 #Title span { font-family: "Segoe UI Light", "Segoe UI", "Malgun Gothic", Tahoma, sans-serif; }
 .WikiTitle { font-family: "Segoe UI Light", "Segoe UI", "Malgun Gothic", Tahoma, sans-serif; }
-h1, h2, h3, h4, h5, h6 { font-family: "Segoe UI Light", "Segoe UI", "Malgun Gothic", Tahoma, sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: "Segoe UI", "Malgun Gothic", Tahoma, sans-serif; }
 pre, tt { font-family:Consolas, Monotype, Lucida Console, Lucida, monospace; }
 div.shortcut { font-family:Consolas, Monotype, Lucida Console, Lucida, monospace; }
 div.diff, div.diff-sep { font-family:Consolas, Monotype, Lucida Console, Lucida, monospace; }
-/* ~Typography */
 
-body, textarea, input, table, td {
-	font-size: 12px;
-	line-height: 1.8;
-}
+/* 줄간은 기본적으로 22px로 설정합니다. */
+body, textarea, table, td { font-size: 12px; line-height: 22px; }
+input { font-size: 12px; }
+p { margin: 0; }
+h1, h2, h3, h4, h5, h6 { padding: 0; margin: 0; font-weight: normal; }
+h1 { font-size: 30px; line-height: 43px; } /* border가 1px을 잡아먹기 때문에 43+1 = 44 = 22x2. 두 줄을 차지합니다. */
+h2 { font-size: 22px; line-height: 32px; }
+h3 { font-size: 18px; line-height: 21px; }
+h4 { font-size: 16px; line-height: 21px; }
+h5 { font-size: 13px; line-height: 21px; }
+a:link, a:visited, a:hover, a:-webkit-any-link { text-decoration:none; }
+ul, ol { margin:0 1.5em 0 1.5em; padding:0;}
+dl { margin:0; padding: 0;}
+dd { margin:0 1.5em 0 1.5em; padding: 0;}
+hr {	border: 0; height: 1px; margin:0; padding:0; }
+.separator { height:1px; padding:5px 0 5px 0;} /* HR을 감싸고 있다. 5 + 5 + 1 = 11. */ 
+td.center { text-align:center; }
+td.right { text-align:right; }
+pre { margin: 0; }
+em.underline { text-decoration: underline; font-style:normal; }
+tt.wiki { }
+tt.foot { vertical-align: super; font-size: 9px; line-height: 0; }
+tt.sister { vertical-align: super; font-size: 9px; line-height: 0; }
+sub, sup { line-height:0; }
+div.indent { padding-left:1.5em; }
+
+table.wiki, table.info, table.closure
+{ width:100%; border-collapse: collapse; border: 1px solid; margin-top: -1px; } /* 줄 수보다 선 수가 하나 많기 때문에 -1 만큼 올려준다.*/
+table.wiki th, table.wiki td, table.info th, table.info td
+{ padding: 5px 0.5em; border-collapse: collapse; border: 1px solid; } /* 표 줄간 여백은 0.5배인 11px 이다: 10(margins) + 1(line). */
+table.closure td { padding: 5px 1.5em; text-align:center; font-size:15px; line-height:33px; border-collapse: collapse; border-bottom: 1px solid; } /* quotes */
+textarea.wiki { background-color: Transparent; width:100%; margin-top:-1px; }
+input[type='text'], input[type='password'] { height: 20px; padding: 0px; }
+input[type='submit'], input[type='button'] { height: 30px; }
+
+/* IMAGES */
+.imgAttach { display:inline; }
+img.imgLeft { margin: 6px 1.5em 5px 0; }
+img.imgRight { margin: 6px 0 5px 1.5em; }
+img.imgCenter { display:block; margin: 6px auto 5px; }
+/* ~IMAGES */
+
+/* ~Typography */
 
 body
 {
-	background: Black url(../imgs/bg_texture.png) repeat-x;
+	background: #3765A1 /*url(../imgs/bg_texture.png) repeat-x*/;
 	border: 0;
 	margin: 0 auto 20px;
 	max-width: 60em;
@@ -48,32 +127,26 @@ body
 
 #Wallpaper {
 	z-index: -1;
-	position:fixed;
-	top:0;
 	left:0;
-	width:100%;
-	background: url('../imgs/bg.jpg');
+	top:0;
+	position:fixed;
+	height:0;
+	background: url('../imgs/bg1.jpg');
 }
 
-a:link { color: #369; text-decoration:none; }
-a:visited { color: #369; text-decoration:none; }
-a:hover { color: #47a; text-decoration:none; }
+#Wallpaper2 {
+	z-index: -2;
+	left:0;
+	top:0;
+	position:fixed;
+	height:0;
+	background: url('../imgs/bg_texture.png	') repeat-x;
+}
+
 
 /* Search */
-#SearchBox
-{
-	margin: 3px 3px 3px 0;
-	border:0;
-	float: right;
-}
-
-#SearchBox input
-{
-	margin: 0;
-	height: 24px;
-	border: none;
-	float: left;
-}
+#SearchBox { margin: 3px 3px 3px 0; border: 0; float: right; }
+#SearchBox input { margin: 0; height: 24px; border: none;	float: left; }
 
 #SearchBox input[type='text'] {
 	padding: 0 30px 0 4px;
@@ -87,11 +160,6 @@ a:hover { color: #47a; text-decoration:none; }
 	font-weight: bold;
 }
 
-#SearchBox input[type='text']:focus,
-#SearchBox input[type='text']:hover {
-	background-color:#ddd;
-}
-
 #SearchBox input[type='submit'] {
 	width: 25px;
 	padding: 0 -25px 0 10px;
@@ -102,409 +170,90 @@ a:hover { color: #47a; text-decoration:none; }
 /* ~Search */
 
 /* Menu */
-#MainMenuTop
-{
-	background-color:#475059;
-	height:30px;
-	line-height:30px;
-	border-top-left-radius: 12px;
-	border-top-right-radius: 12px;
-	padding-left:12px;
-}
-
-#MainMenu
-{
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: inline;
-}
-	
-#MainMenu > li
-{
-	margin: 0px;
-	position: relative; /*--Declare X and Y axis base for sub navigation--*/
-	color: white;
-	float: left;
-}
-
-#MainMenu div.mainMenuItem
-{
-	cursor: pointer;
-	padding: 0 8px;
-	display: inline-block;
-}
+#MainMenuTop { height:30px; line-height:30px; border-top-left-radius: 12px; border-top-right-radius: 12px; padding-left:1.5em; }
+#MainMenu { list-style: none; padding: 0; margin: 0; display: inline; }
+#MainMenu > li { margin: 0px; position: relative; /*--Declare X and Y axis base for sub navigation--*/ float: left; }
+#MainMenu div.mainMenuItem { cursor: pointer; padding: 0 8px; display: inline-block; }
 
 #MainMenu > li > ul
 {
-	background-color: #475059;
 	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
 	margin: 0;
-	padding: 10px 0;
+	padding: 11px 0;
 	list-style: none;
 	line-height: 1.5em;
 	left: 0;
 	display: none;
-	z-index: 10;
+	z-index: 3000; /* _extra.css를 보면 엄청나게 높은 z-index들을 써대고 있다. */
 }
 
-#MainMenu > li > ul > li
-{
-	cursor: pointer;
-	margin: 0;
-	padding: 2px 20px 2px 20px;
-}
-
-#MainMenu hr
-{
-	padding: 0;
-	margin: 2px 15px;
-}
-
-#MainMenu div.menuItem
-{
-	width: auto;
-	display: inline;
-	margin-right: 25px;
-}
-
-#MainMenu div.menuItem a
-{
-	color: white;
-}
-
-#MainMenu div.shortcut 
-{
-		margin-left: -15px;
-		display: inline;
-		text-align: right;
-		float: right;
-}
+#MainMenu > li > ul > li { cursor: pointer; margin: 0; line-height:22px; padding: 0 1.5em; }
+#MainMenu hr { padding: 0; margin: 2px 15px; }
+#MainMenu div.menuItem { width: auto; display: inline; margin-right: 25px; }
+#MainMenu div.shortcut { margin-left: -15px; display: inline; text-align: right; float: right; }
 /* ~Menu */
 
-#wikiHeader
-{
-	padding-left:40px;
-}
+/* Header */
+#Title { padding-top: 40px; letter-spacing: -0.05em; line-height: 1.0em; text-shadow: #333 1px 2px 4px; line-height: 60px; font-size: 60px; }
+#Title a { text-decoration: none; }
 
-.preWhiteSpace
-{
-	border:1px solid #ddd;
-}
-
-.wikiTitle
-{
-	display: block;
-	padding-top: 20px;
-	padding-bottom: 20px;
-  font-size: 3em;
-  letter-spacing: -0.06em;
-  line-height: 1;
-}
-
-.wikiTitle a 
-{
-  text-decoration: none;
-  color: #555;
-  text-shadow: #ddd 1px 1px 1px;
-}
-
-tt 
-{
-	font-size: 0.9em;
-}
-
-tt.foot {
-  vertical-align: super;
-  font-size: 0.8em;
-}
-
-tt.sister {
-  font-size: 0.8em;
-  vertical-align: super;
-}
-
-.foot .separator  
-{
-	margin-top: 40px;
-	height: 1px;
-	color:White;
-	background-color:#ddd;
-}
-
-pre.wiki {
-  padding-left:6px;
-  padding-top:6px; 
-}
-
-pre.console {
-  background-color: #000000;
-  color: #E0E0E0;
-  padding: .25em ;
-  border: 2px inset #808080;
-}
-
-pre.quote {
-  padding-left:6px;
-  padding-top:6px;
-  white-space:pre-wrap;
-  white-space: -moz-pre-wrap; 
-  font-size:14px;
-  background-color: #E9ECEF;
-}
-
-table.wiki 
-{
-	min-width:400px;
-	border-collapse: collapse;
-  border: 1px solid #ccc;
-}
-
-table.wiki td
-{
-	padding: 2px 10px;
-	border-collapse: collapse;
-  border-bottom: 1px inset #ccc;
-  border-left: 1px inset #ddd;
-}
-
-textarea.wiki  
-{
-	width:100%; 
-}
-
-table.info 
-{
-	font-size: 0.9em;
-	width:100%;
-	border-collapse: collapse;
-}
-
-table.info th {
-	padding:0;
-	margin:0;
-	border-collapse: collapse;
-	border: 1px solid silver;
-}
-
-table.info td
-{
-	padding:2px 4px;
-	margin:0;
-	border-collapse: collapse;
-	border: 1px solid silver;
-}
-
-h1, h2, h3, h4, h5 
-{
-	color: #555;
-  padding: 0;
-  margin: 0;
-  font-weight: normal;
-}
-
-#toc  
-{
-	float: right;
-	background-color: White; 
-	margin-top: -10px;
-	padding: 10px 15px 10px 5px;
-	margin-left: 20px;
-	border: solid 1px #ddd;
-	-webkit-box-shadow: 2px 2px 5px #ddd;
-}
-#toc h2 { border: 0; padding-left:10px;}
+/* Main */
+#wikiMain { border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; padding: 0 3em 44px; }
+#wikiBody { }
+#wikiBody a:hover { text-decoration:none; }
+#wikiHeader { padding-top: 22px; margin-bottom: 22px; }
+.wikiTitle { line-height: 44px; text-shadow: #ddd 1px 1px 1px; letter-spacing: -0.06em; text-decoration: none; font-size: 34px; }
+.wikiGroup { display: block; margin-bottom:-11px; margin-top:-11px; } /* HierarchicalWiki */
+#wikiTrailer { line-height: 22px; margin-top:-22px; margin-bottom:22px; }
+#toctitle { height: 22px; } /* toctitle 안의 h2가 inline이 되면서 내부의 줄간 정보가 무시된다. */
+#toctitle h2 { font-size: 17px; line-height: 21px; }
+#toc { border: 1px solid; margin-top: -1px; padding:5px 1.5em 5px;}
 #toc a { text-decoration: none; }
-
+div.message { margin-top:-22px; margin-bottom:22px; }
+div.sectionEdit { margin: 0; }
+.foot .separator .wiki { height: 1px; margin:0; padding:0; font-size: 0; color: Transparent; display: block; } /* 주석 상단 수평선 */
 .perma { display:none; }
-h1 { font-size: 2.0em; border-bottom: 1px solid #ddd; line-height: 1.4; margin-bottom: 5px; }
-h2 { font-size: 1.6em; border-bottom: 1px solid #ddd; line-height: 1.4; margin-bottom: 5px; }
-h3 { font-size: 1.3em; border-bottom: 1px solid #ddd; line-height: 1.4; margin-bottom: 5px; }
-h4 { font-size: 1.1em; border-bottom: 1px solid #ddd; line-height: 1.4; margin-bottom: 2px; }
-ul, ol { margin:0 0 0 36px; padding:0;}
-dl { margin:0; padding: 0;}
-dd { margin:0 0 0 12px; padding: 0;}
 
-div.diff 
-{
-	font-size:0.9em;
-}
+/* Footer */
+#wikiFooter {	padding: 5px 5px 22px 0; font-size: 0.9em; text-align: right; text-shadow: Black 0 1px 1px; }
 
-div.diff-added {
-  background-color:#E0FFE0;
-}
+/* ? */
+.preWhiteSpace{ border:1px solid #ddd; } /* 이건 어떻게 쓰지? */
+pre.wiki { padding: 11px 1.5em; }
+pre.console { background-color: #000000; color: #E0E0E0; padding: 11px 1.5em; border: 2px inset #808080; } /* 이건 어떻게 쓰지? */
+pre.quote { padding: 11px 1.5em; white-space:pre-wrap; white-space: -moz-pre-wrap; background-color: #E9ECEF; } /* 이건 어떻게 쓰지? */
 
-div.diff-removed {
-  background-color:#E9EAB8;
-}
+/* EDIT */
+#editor_info ul { padding: 22px 0 0; margin: 0; }
+#editor_info li { list-style: none; margin: 0; padding: 0; height: 22px; }
+#editor_info label { float: left; display: block; width: 80px; text-align: right; padding-right: 10px; }
+.commentForm { margin-top: 11px; }
+/* ~EDIT */
 
-div.diff-sep {
-	font-size:0.9em;
-  background-color:#000000;
-  color:#FFD700; /* gold */
-}
+/* DIFF */
+span.diff-added, ins.diff-added { text-decoration: none; }
+/* ~INFO */
 
-span.diff-added, ins.diff-added {
-  background-color: #60FF60;
-  text-decoration: none;
-}
+/* RECENT CHANGES */
+.rc-date { line-height:22px; }
+/* ~RECENT CHANGES */
 
-span.diff-removed, del.diff-removed {
-  background-color: #FF0000;
-}
-	
-div.message
-{
-	margin:20px;
-  color:#440000;
-  font-weight: normal;
-  font-size: 1em;
-	border-bottom-left-radius: 8px 8px;
-	border-bottom-right-radius: 8px 8px;
-	border-top-left-radius: 8px 8px;
-	border-top-right-radius: 8px 8px;
-	border: solid 1px #aaa;
-	padding: 10px;
-}
-	
-div.message h3 
-{
-	margin:0;
-	padding: 0;
-  border: 0;
-  color:#440000;
-  font-size: 1em;
-  text-decoration: none;
-}
+/* KEYWORDS */
+.highlight { background-color:#FFFF40; }
+.cloudView { line-height: 33px; }
+/* ~KEYWORDS */
 
-.highlight {
-  background-color:#FFFF40;
-}
-
-table.closure, td.closure{
-  background-color: #E9ECEF;
-}
-
-#Title 
-{
-	padding-top: 40px;
-	letter-spacing: -0.05em;
-  line-height: 1.0em;
-  text-shadow: #333 1px 2px 4px;
-	line-height: 60px;
-	font-size: 60px;
-}
-
-#Title a 
-{
-	text-decoration: none;
-	color: White;
-}
-
-hr 
-{
-	border: 0;
-  height:	1px;
-  background-color: #ddd;
-}
-
-#wikiTrailer 
-{
-	margin-top: -20px;
-	background-color: #edeeef;
-  padding-left: 40px;
-}
-
-.wikiNavigation {
-  background-color:#E0E0E0; 
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-#wikiOrigin {
-  background-color:#eeeeee; 
-  padding-left: 20px;
-}
-
-#wikiIcon {
-  padding: 0 5px 0 0;
-  text-align: right;
-  letter-spacing: -0.3em;
-}
-
-a:-webkit-any-link
-{
-	text-decoration: none;
-}
-
+.wikiNavigation { background-color:#E0E0E0; padding-top: 5px; padding-bottom: 5px; }
+#wikiOrigin { background-color:#eeeeee; padding-left: 20px; }
+#wikiIcon { padding: 0 5px 0 0; text-align: right; letter-spacing: -0.3em; }
 .wikiHints { display:none; }
 #smileyChooser { display:none; }
-
-#wikiMain
-{
-  color: black;
-  background-color: #fff;
-	border-bottom-left-radius: 12px;
-	border-bottom-right-radius: 12px;
-	padding-top: 10px;
-	padding-bottom: 30px;
-}
-
-#wikiBody 
-{
-	padding: 0px 40px 10px	;
-}
-
-#wikiBody a:link {
-  color: #3F5EB1;
-}
-
-#wikiBody a:visited {
-  color: #3F5EB1;
-}
-
-#wikiBody a:hover {
-  text-decoration:none;
-}
-
-#wikiExtra {
-  padding-top: 1em;
-}
-
-#wikiFooter 
-{
-	padding: 5px 5px 20px 0;
-	font-size: 0.9em;
-	color: #ccd;
-  text-align: right;
-  text-shadow: Black 0 1px 1px; 
-}
-
-#wikiFooter a
-{
-	color: #ccd;
-}
-
-#wikiHint {
-  font-size:10px;
-  background-color:#E2DAE2;
-}
-
-#wikiSister {
-/*  background-color:lightgreen; /* */
-}
-
-#wikiPreview {
-  border: 2px solid #a0a0a0;
-  margin: 5px 5px 5px 5px;
-  padding: 5px 1em 5px 1em;
-}
-
-
-div.indent { padding-left:2em; }
-
-div.hint { font-size: 10px; background-color: #369; color:white;}
-a.purple { font-size: 10px; text-decoration:none;}
+#wikiExtra { padding-top: 1em; }
+#wikiHint { font-size:10px; background-color:#E2DAE2; }
+#wikiSister { }
+#wikiPreview { border: 2px solid #a0a0a0; margin: 5px 5px 5px 5px; padding: 5px 1em 5px 1em; }
+div.hint { font-size: 10px; background-color: #369; color: white; }
+a.purple { font-size: 10px; text-decoration:none; }
 
 /* Blog CSS */
 a.purple { font-size: 10px; text-decoration:none;}
@@ -526,49 +275,15 @@ td.today { background:#fff; text-align: center;}
 span.blogged { text-decoration:none; font-weight:bold; color:#000000; text-align: center; }
 .Calendar a{text-decoration:none;color:black;}
 
-/* HierarchicalWiki */
-div.wikiGroup 
-{
-  font-size:10px;
-}
-
 /* login */
-#wikiLogin {
-  font-size:7pt;
-  font-weight:bold;
-}
-
-#wikiLogin input {
-  font-size:7px;
-  font-weight:normal;
-}
+#wikiLogin { font-size:7pt; font-weight:bold; }
+#wikiLogin input { font-size:7px; font-weight:normal; }
 
 /* enscript syntax */
-div.wikiPre i,div.wikiPre b{
-  font-weight: normal;
-  font-style: normal;
-}
+div.wikiPre i,div.wikiPre b{ font-weight: normal; font-style: normal; }
 
-.imgAttach { display:inline; }
-
-img.imgLeft {
-  margin-bottom : 5px;
-  margin-right: 10px;
-}
-
-img.imgRight 
-{
-  margin-left : 10px;
-  margin-bottom : 5px;
-}
-
-span.externalLink {
-  display: none;
-}
-
-span.lineNumber {
-  color:#ffff00;
-}
+span.externalLink { display: none; }
+span.lineNumber { color:#ffff00; }
 
 /* IPHONE */
 .iphone
@@ -606,30 +321,3 @@ span.lineNumber {
 	color:Black;
 }
 /* ~IPHONE */
-
-/* EDITOR */
-#editor_info ul
-{
-	padding: 20px 0 0;
-	margin: 0;
-}
-#editor_info li
-{
-	list-style: none;
-	margin: 0;
-	padding: 0;
-	height: 30px;
-}
-#editor_info label
-{
-	float: left;
-	display: block;
-	width: 80px;
-	text-align: right;
-	padding-right: 10px;
-}
-.commentForm
-{
-	margin-top: 1em;
-}
-/* ~EDITOR */

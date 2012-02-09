@@ -2,7 +2,7 @@
 
 <div id='DialogShortcut' class='dialog'>
 	<h1>단축키 목록</h1>
-	<table style='width:400px;'>
+	<table style='width:500px;'>
 		<thead>
 			<tr>
 				<th>단축키</th>

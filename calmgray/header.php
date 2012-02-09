@@ -25,6 +25,7 @@
 <!--[if IE 7]> <link rel="stylesheet" type="text/css" href="<?php echo $this->themeurl;?>/css/ie7.css" /> <![endif]-->
 <!--[if lt IE 7]> <script defer type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/pngfix.js"></script> <![endif]-->
 
+<img id="Wallpaper2" src="<?php echo $this->themeurl;?>/imgs/bg_texture.png">
 <img id="Wallpaper" src="<?php echo $this->themeurl;?>/imgs/bg1.jpg">
 
 <?php include("dialogs.php");?>
@@ -41,9 +42,9 @@
 <div id="MainMenuTop">
 <?php $menuIndex = 1; ?>
 	<ul id="MainMenu">
-<!-- 항해 메뉴 -->
+<!-- 탐색 메뉴 -->
 		<li>
-			<div class="mainMenuItem">항해(<u><?php echo $menuIndex++;?></u>)</div>
+			<div class="mainMenuItem">탐색(<u><?php echo $menuIndex++;?></u>)</div>
 			<ul class="MenuPanel" style="display:none; width:160px;">
 				<li><div class="menuItem"><a href="<?php echo $this->link_url('FrontPage');?>">대문</a></div><div class="shortcut">F</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url('RecentChanges');?>">바뀐 문서 목록</a></div><div class="shortcut">C</div></li>
@@ -87,7 +88,7 @@
 			<ul class="MenuPanel" style="width:150px;">
 <?php if ( $DBInfo->user->id == 'Anonymous' ) { ?>
 				<li id="LogInMenu"><div class="menuItem">로그인</div><div class="shortcut">G</div></li>
-				<li><div class="menuItem"><a href="UserPreferences">사용자 등록</a></div></li>
+				<li><div class="menuItem"><a href="<?php echo $this->link_url('UserPreferences');?>">사용자 등록</a></div></li>
 <?php } else { ?>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=home');?>">내 페이지</a></div><div class="shortcut">H</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url('UserPreferences');?>">환경설정</a></div><div class="shortcut">U</div></li>
@@ -100,7 +101,7 @@
 if ($DBInfo->use_scrap && $DBInfo->user->id != 'Anonymous') {
 	echo "		<li>\n";
 	echo "			<div class='mainMenuItem'>즐겨찾기(<u>".$menuIndex."</u>)</div>\n";
-	echo "			<ul class='MenuPanel' style='min-width:170px; width:170px;'>\n";
+	echo "			<ul class='MenuPanel' style='min-width:170px;'>\n";
 	$isScrapped = false;
 	$menuIndex += 1;
 	
@@ -134,7 +135,7 @@ if ($DBInfo->use_scrap && $DBInfo->user->id != 'Anonymous') {
 <?php
 	echo "		<li>\n";
 	echo "			<div class='mainMenuItem'>바뀐글(<u>".$menuIndex."</u>)</div>\n";
-	echo "			<ul class='MenuPanel' style='width:170px;'>\n";
+	echo "			<ul class='MenuPanel' style='min-width:170px;'>\n";
 	$menuIndex += 1;
 	$list = array();
 	$count = 0;
