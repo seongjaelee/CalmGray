@@ -12,54 +12,28 @@
  */
  
 	include_once("plugin/login.php");
-	$theme_use_logo = true;
+	$theme_use_logo = true; // 사이트 로고를 좌상단에 표시합니다.
+	$theme_use_sitename = false; // 사이트 이름을 좌상단에 표시합니다.
 ?>
-<style type="text/css">
-<?php if (!$theme_use_logo) echo "#Title img { display:none; }"; else echo "#Title span {display:none; }"; ?>
-</style>
-<!--[if IE 6]>
-<style type="text/css">
-	body { width:70em; background: Black url(<?php echo $this->themeurl;?>/imgs/bg.jpg) top center no-repeat; }
-	#Wallpaper { display:none; }
-	#MainMenuTop {padding-left: 12px; }
-	#MainMenu li { margin:0; position:relative; color:White; padding-top:4px; float:left; }
-	#MainMenu .mainMenuItem { cursor:pointer; padding:0 8px; float:left; }
-	#MainMenu ul { background-color:#475059; position:absolute; margin:0; padding:10px 0; list-style:none; line-height:1.5em; left:0; top:40px; display:none; z-index:10; }
-	#MainMenu .MenuPanel li { margin:0; position:inherit; display:inherit; cursor:pointer; padding:2px 20px; width:100%; }
-	#MainMenu div.menuItem { width:inherit; float:left; }
-	#MainMenu div.shortcut { display:block; }
-	#MainMenu hr { display:none; }
-	#SearchBox { padding-top: 4px; padding-right: 3px; }
-	#SearchBox input { height:22px; font-size:16px; border:0; }
-	#SearchBox input#SearchBoxSubmit { height:30px; width:24px; background: transparent url('<?php echo $this->themeurl;?>/imgs/search-icon.png') no-repeat; cursor:pointer; }
-</style>
-<![endif]-->
-<!--[if IE 7]>
-<style type="text/css">
-	#MainMenu li { margin:0; position:relative; color:White; display:inline; float:left; }
-	#MainMenu .mainMenuItem { cursor:pointer; padding:0 8px; display:inline-block; float:left; }
-	#MainMenu ul { background-color:#475059; position:absolute; margin:0; padding:10px 0; list-style:none; line-height:1.5em; left:0; top:30px; display:none; z-index:10; }
-	#MainMenu .MenuPanel li { margin:0; display:block; cursor:pointer; padding:2px 20px; width:100%; padding:2px 0;}
-	#MainMenu div.menuItem { padding-left:20px; float:left; }
-	#MainMenu div.shortcut { padding-right:20px;}
-	#MainMenu hr { display:none; }
-	#SearchBox input { height:24px; font-size:16px; border:0; }
-</style>
-<![endif]-->
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript" src="http://www.openjs.com/scripts/events/keyboard_shortcuts/shortcut.js"></script>
+<!--<script type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/jquery-1.4.2.min.js"></script>-->
+<script type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/shortcut.js"></script>
+<script type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/jquery.simplemodal-1.3.5.min.js"></script>
 <script type="text/javascript" src="<?php echo $this->themeurl;?>/menu.js"></script>
+<!--[if IE 6]> <style type="text/css"> body { width:60em; background: Black url(<?php echo $this->themeurl;?>/imgs/bg.jpg) top center no-repeat; } #SearchBox input#SearchBoxSubmit { background: transparent url('<?php echo $this->themeurl;?>/imgs/search-icon.png') no-repeat; } </style> <![endif]-->
+<!--[if IE 6]> <link rel="stylesheet" type="text/css" href="<?php echo $this->themeurl;?>/css/ie6.css" /> <![endif]-->
+<!--[if IE 7]> <link rel="stylesheet" type="text/css" href="<?php echo $this->themeurl;?>/css/ie7.css" /> <![endif]-->
+<!--[if lt IE 7]> <script defer type="text/javascript" src="<?php echo $this->themeurl;?>/javascripts/pngfix.js"></script> <![endif]-->
 
 <img id="Wallpaper" src="<?php echo $this->themeurl;?>/imgs/bg1.jpg">
 
 <?php include("dialogs.php");?>
 
+<!-- 좌상단 사이트 로고/이름 표시 -->
 <div id="Title">
 <?php
-	echo "	<a href='".$this->link_url('FrontPage')."'>\n";
-	echo "		<img src='".$DBInfo->logo_img."' style='border:0;'></img>\n";
-	echo "		<span>".$DBInfo->sitename."</span>\n";
-	echo "	</a>\n";
+	if ( $theme_use_logo ) { echo "<a href='".$this->link_url('FrontPage')."'><img src='".$DBInfo->logo_img."' style='border:0;'></a>\n"; }
+	if ( $theme_use_sitename ) { echo "<a href='".$this->link_url('FrontPage')."'><span>".$DBInfo->sitename."</span></a>\n"; }
 ?>
 </div>
 
@@ -67,24 +41,26 @@
 <div id="MainMenuTop">
 <?php $menuIndex = 1; ?>
 	<ul id="MainMenu">
+<!-- 항해 메뉴 -->
 		<li>
 			<div class="mainMenuItem">항해(<u><?php echo $menuIndex++;?></u>)</div>
 			<ul class="MenuPanel" style="display:none; width:160px;">
 				<li><div class="menuItem"><a href="<?php echo $this->link_url('FrontPage');?>">대문</a></div><div class="shortcut">F</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url('RecentChanges');?>">바뀐 문서 목록</a></div><div class="shortcut">C</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url('?action=RandomPage');?>">랜덤 문서</a></div><div class="shortcut">A</div></li>
-				<hr></hr>
+				<hr>
 				<li id="GotoMenu"><div class="menuItem">바로 가기</div><div class="shortcut">,</div></li>
 				<li id="TitleSearchMenu"><div class="menuItem">제목 검색</div><div class="shortcut">.</div></li>
 				<li id="FullSearchMenu"><div class="menuItem">본문 검색</div><div class="shortcut">S</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url('FindPage');?>">상세 검색</a></div><div class="shortcut">Q</div></li>
-				<hr></hr>
+				<hr>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url('?action=TitleIndex');?>">문서 목록</a></div><div class="shortcut">T</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=LikePages');?>">유사 문서 목록</a></div><div class="shortcut">L</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url('?action=fullsearch&value='.$this->page->name.'&backlinks=1&context=20');?>">역링크 문서 목록</a></div></li>
 				<li><div class="menuItem"><del>사용자 목록</del></div></li>
 			</ul>
 		</li>
+<!-- 문서 메뉴 -->
 		<li>
 			<div class="mainMenuItem">문서(<u><?php echo $menuIndex++;?></u>)</div>
 			<ul class="MenuPanel" style="width:150px;">
@@ -93,7 +69,7 @@
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=info');?>">문서 정보</a></div><div class="shortcut">I</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=show');?>">문서 읽기</a></div><div class="shortcut">R</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=print');?>">문서 인쇄</a></div><div class="shortcut">P</div></li>
-				<hr></hr>
+				<hr>
 				<li id="CreatePageMenu"><div class="menuItem">새 문서</div><div class="shortcut">N</div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=rename');?>">문서 제목 수정</a></div></li>
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=DeletePage');?>">문서 삭제</a></div></li>
@@ -105,6 +81,7 @@
 				<li><div class="menuItem"><a href="<?php echo $this->link_url($this->page->name.'?action=bookmark');?>">북마크</a></div><div class="shortcut">B</div></li>
 			</ul>
 		</li>
+<!-- 계정 메뉴 -->
 		<li>
 			<div class="mainMenuItem">계정(<u><?php echo $menuIndex++;?></u>)</div>
 			<ul class="MenuPanel" style="width:150px;">
@@ -118,6 +95,7 @@
 <?php } ?>
 			</ul>
 		</li>
+<!-- 즐겨찾기 메뉴. config.php에서 $use_scrap=1이어야 하고, 로긴해 있어야 한다. -->
 <?php
 if ($DBInfo->use_scrap && $DBInfo->user->id != 'Anonymous') {
 	echo "		<li>\n";
@@ -142,7 +120,8 @@ if ($DBInfo->use_scrap && $DBInfo->user->id != 'Anonymous') {
 		
 		echo $out;
 	}
-	echo "				<hr></hr>\n";
+	if ( count( $list ) > 0 )
+		echo "				<hr>\n";
 	if ( !$isScrapped )
 		echo "				<li><div calss='menuItem'><a href=".$this->link_url($this->page->name.'?action=scrap')." style='color:white;'>현 문서 즐겨찾기 추가</a></div></li>\n";
 	else
@@ -151,6 +130,7 @@ if ($DBInfo->use_scrap && $DBInfo->user->id != 'Anonymous') {
 		echo "		</li>\n";
 }
 ?>
+<!-- 바뀐 글 메뉴 -->
 <?php
 	echo "		<li>\n";
 	echo "			<div class='mainMenuItem'>바뀐글(<u>".$menuIndex."</u>)</div>\n";
@@ -161,7 +141,7 @@ if ($DBInfo->use_scrap && $DBInfo->user->id != 'Anonymous') {
 	foreach ( $DBInfo->editlog_raw_lines(30,null) as $line )
 	{
 		$parts = explode("\t", $line, 6 );
-		$list[$parts[0]] = 1;
+		$list[$DBInfo->keyToPagename($parts[0])] = 1;
 	}
 	foreach ( array_keys($list) as $item )
 	{
@@ -169,7 +149,7 @@ if ($DBInfo->use_scrap && $DBInfo->user->id != 'Anonymous') {
 		echo "				<li><div calss='menuItem'><a href='".$this->link_url($item)."' style='color:white;'>".$item."</a></div></li>\n";
 		if ( $count > 10 ) break;
 	}
-	echo "				<hr></hr>\n";
+	echo "				<hr>\n";
 	echo "				<li><div class='menuItem'><a href='".$this->link_url("RecentChanges")."'>바뀐 문서 목록</a></div><div class='shortcut'>C</div></li>\n";
 	echo "			</ul>\n";
 	echo "		</li>\n";

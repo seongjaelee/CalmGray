@@ -1,0 +1,9 @@
+#MainMenu li { margin:0; position:relative; color:White; display:inline; float:left; }
+#MainMenu .mainMenuItem { cursor:pointer; padding:0 8px; float:left; }
+#MainMenu ul { background-color:#475059; position:absolute; margin:0; padding:10px 0; list-style:none; line-height:1.5em; left:0; top:30px; display:none; z-index:10; }
+#MainMenu .MenuPanel li { margin:0; display:block; cursor:pointer; padding:2px 20px; width:100%; padding:2px 0;}
+#MainMenu div.menuItem { padding-left:20px; float:left; }
+#MainMenu div.shortcut { padding-right:20px;}
+#MainMenu hr { display:none; }
+#SearchBox input { height:24px; font-size:16px; border:0; }
+#MainMenu { display:block; }

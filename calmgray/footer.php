@@ -11,7 +11,6 @@
  * @license GPL
  */
 ?>
-
 <div style='clear:both;'></div>
 </div>
 

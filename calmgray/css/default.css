@@ -3,7 +3,6 @@
 @import url("../../../css/_calendar.css");
 /*@import url("../../../css/_user.css");*/
 
-
 #simplemodal-overlay {background-color: Black; cursor:wait;}
 #simplemodal-container { padding: 10px 20px; background-color: White; border-radius:10px; }
 .dialog { display:none; }
@@ -22,10 +21,19 @@
 .dialog table { border-collapse: collapse; width:300px; }
 .dialog .footer { text-align: right; padding: 40px 0 10px 0; }
 
+/* Typography */
+body, textarea, input, table, td, input { font-family: Verdana, "Malgun Gothic", Tahoma, "Segoe UI", sans-serif; }
+#Title span { font-family: "Segoe UI Light", "Segoe UI", "Malgun Gothic", Tahoma, sans-serif; }
+.WikiTitle { font-family: "Segoe UI Light", "Segoe UI", "Malgun Gothic", Tahoma, sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: "Segoe UI Light", "Segoe UI", "Malgun Gothic", Tahoma, sans-serif; }
+pre, tt { font-family:Consolas, Monotype, Lucida Console, Lucida, monospace; }
+div.shortcut { font-family:Consolas, Monotype, Lucida Console, Lucida, monospace; }
+div.diff, div.diff-sep { font-family:Consolas, Monotype, Lucida Console, Lucida, monospace; }
+/* ~Typography */
+
 body, textarea, input, table, td {
-	font-family: "Malgun Gothic", serif;
 	font-size: 12px;
-	line-height: 1.6;
+	line-height: 1.8;
 }
 
 body
@@ -47,9 +55,9 @@ body
 	background: url('../imgs/bg.jpg');
 }
 
-a:link { color: #369;}
-a:visited { color: #369;}
-a:hover { color: #47a; }
+a:link { color: #369; text-decoration:none; }
+a:visited { color: #369; text-decoration:none; }
+a:hover { color: #47a; text-decoration:none; }
 
 /* Search */
 #SearchBox
@@ -65,7 +73,6 @@ a:hover { color: #47a; }
 	height: 24px;
 	border: none;
 	float: left;
-	font-family: "Malgun Gothic";
 }
 
 #SearchBox input[type='text'] {
@@ -95,45 +102,41 @@ a:hover { color: #47a; }
 /* ~Search */
 
 /* Menu */
-	#MainMenuTop
-	{
+#MainMenuTop
+{
 	background-color:#475059;
-	height:2.5em;
-	line-height:2.5em;
+	height:30px;
+	line-height:30px;
 	border-top-left-radius: 12px;
 	border-top-right-radius: 12px;
-	}
+	padding-left:12px;
+}
 
-	#MainMenu
-	{
+#MainMenu
+{
 	list-style: none;
-	padding: 0 0 0 10px;
+	padding: 0;
 	margin: 0;
 	display: inline;
-	}
+}
 	
-	#MainMenu a
-	{
-	text-decoration: none;
-	}
-
-	#MainMenu > li
-	{
+#MainMenu > li
+{
 	margin: 0px;
 	position: relative; /*--Declare X and Y axis base for sub navigation--*/
 	color: white;
-	display: inline;
-	}
+	float: left;
+}
 
-	#MainMenu div.mainMenuItem
-	{
+#MainMenu div.mainMenuItem
+{
 	cursor: pointer;
 	padding: 0 8px;
 	display: inline-block;
-	}
+}
 
-	#MainMenu > li > ul
-	{
+#MainMenu > li > ul
+{
 	background-color: #475059;
 	position: absolute; /*--Important - Keeps subnav from affecting main navigation flow--*/
 	margin: 0;
@@ -143,46 +146,45 @@ a:hover { color: #47a; }
 	left: 0;
 	display: none;
 	z-index: 10;
-	}
+}
 
-	#MainMenu > li > ul > li
-	{
+#MainMenu > li > ul > li
+{
 	cursor: pointer;
 	margin: 0;
 	padding: 2px 20px 2px 20px;
-	}
+}
 
-	#MainMenu hr
-	{
+#MainMenu hr
+{
 	padding: 0;
 	margin: 2px 15px;
-	}
+}
 
-	#MainMenu div.menuItem
-	{
+#MainMenu div.menuItem
+{
 	width: auto;
 	display: inline;
 	margin-right: 25px;
-	}
+}
 
-	#MainMenu div.menuItem a
-	{
+#MainMenu div.menuItem a
+{
 	color: white;
-	}
+}
 
-	#MainMenu div.shortcut 
-	{
-		font-family: Consolas,Monotype,Lucida Console,lucida,monospace;
+#MainMenu div.shortcut 
+{
 		margin-left: -15px;
 		display: inline;
 		text-align: right;
 		float: right;
-	}
+}
 /* ~Menu */
 
 #wikiHeader
 {
-	padding-left:20px;
+	padding-left:40px;
 }
 
 .preWhiteSpace
@@ -190,11 +192,18 @@ a:hover { color: #47a; }
 	border:1px solid #ddd;
 }
 
+.wikiTitle
+{
+	display: block;
+	padding-top: 20px;
+	padding-bottom: 20px;
+  font-size: 3em;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+
 .wikiTitle a 
 {
-  font-size:2em;
-  letter-spacing: -0.05em;
-  font-weight:bold;
   text-decoration: none;
   color: #555;
   text-shadow: #ddd 1px 1px 1px;
@@ -202,7 +211,6 @@ a:hover { color: #47a; }
 
 tt 
 {
-	font-family:Consolas,Monotype,Lucida Console,lucida,monospace;
 	font-size: 0.9em;
 }
 
@@ -227,7 +235,6 @@ tt.sister {
 pre.wiki {
   padding-left:6px;
   padding-top:6px; 
-  font-family:Consolas,Monotype,Lucida Console,lucida,monospace;
 }
 
 pre.console {
@@ -288,25 +295,26 @@ table.info td
 	border: 1px solid silver;
 }
 
-h1,h2,h3,h4,h5 
+h1, h2, h3, h4, h5 
 {
 	color: #555;
   padding: 0;
   margin: 0;
+  font-weight: normal;
 }
 
 #toc  
 {
-	float:right;
-	font-size: 0.9em; 
+	float: right;
 	background-color: White; 
-	padding: 5px 15px 5px 5px;
+	margin-top: -10px;
+	padding: 10px 15px 10px 5px;
+	margin-left: 20px;
 	border: solid 1px #ddd;
-	border-top-left-radius: 12px 12px;
 	-webkit-box-shadow: 2px 2px 5px #ddd;
 }
-#toc h2 { font-size: 1.5em; border: 0; }
-#wikiBody .tocnumber a:link, #wikiBody .tocnumber a, #wikiBody .tocnumber a:visited { color:#555; text-decoration:none; }
+#toc h2 { border: 0; padding-left:10px;}
+#toc a { text-decoration: none; }
 
 .perma { display:none; }
 h1 { font-size: 2.0em; border-bottom: 1px solid #ddd; line-height: 1.4; margin-bottom: 5px; }
@@ -319,7 +327,6 @@ dd { margin:0 0 0 12px; padding: 0;}
 
 div.diff 
 {
-	font-family:Consolas,Monotype,Lucida Console,lucida,monospace;
 	font-size:0.9em;
 }
 
@@ -332,7 +339,6 @@ div.diff-removed {
 }
 
 div.diff-sep {
-	font-family:Consolas,Monotype,Lucida Console,lucida,monospace;
 	font-size:0.9em;
   background-color:#000000;
   color:#FFD700; /* gold */
@@ -382,13 +388,8 @@ table.closure, td.closure{
 #Title 
 {
 	padding-top: 40px;
-}
-
-#Title span
-{
 	letter-spacing: -0.05em;
   line-height: 1.0em;
-	font-family: "Segoe UI Light", "Segoe UI", "Malgun Gothic", Tahoma, sans-serif;
   text-shadow: #333 1px 2px 4px;
 	line-height: 60px;
 	font-size: 60px;
@@ -409,8 +410,9 @@ hr
 
 #wikiTrailer 
 {
+	margin-top: -20px;
 	background-color: #edeeef;
-  padding-left: 20px;
+  padding-left: 40px;
 }
 
 .wikiNavigation {
@@ -450,7 +452,7 @@ a:-webkit-any-link
 
 #wikiBody 
 {
-	padding: 10px 20px;
+	padding: 0px 40px 10px	;
 }
 
 #wikiBody a:link {
@@ -527,26 +529,19 @@ span.blogged { text-decoration:none; font-weight:bold; color:#000000; text-align
 /* HierarchicalWiki */
 div.wikiGroup 
 {
-  font-family:Tahoma,Lucida,sans-serif;
   font-size:10px;
 }
 
 /* login */
 #wikiLogin {
-  font-family:Tahoma,sans-serif;
   font-size:7pt;
   font-weight:bold;
 }
 
 #wikiLogin input {
-  font-family:Verdana,sans-serif;
   font-size:7px;
   font-weight:normal;
 }
-
-/* Comment */
-#commentForm { padding:5px; background-color:#eeeeee; }
-#commentForm input { font-size:7px; font-family:Verdana,sans-serif; }
 
 /* enscript syntax */
 div.wikiPre i,div.wikiPre b{
